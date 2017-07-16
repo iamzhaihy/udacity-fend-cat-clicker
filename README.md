@@ -2,7 +2,7 @@
 
 ### What is this?
 
-This a project for Udacity Front-end Nanodegree. It is a practice of separating concerns (View, Model, \*). This project is pretty simeple: choose a cat, click a cat, and see the number changes. You can also change whatever you want in the Admin option! You can try this live demo here [Cat Clicker!](https://iamzhaihy.github.io/udacity-fend-cat-clicker/)
+This a project for Udacity Front-end Nanodegree. It is a practice of separating concerns (View, Model, \*). This project is pretty simeple: choose a cat, click a cat, and see the number changes. You can also change whatever you want in the Admin option! You can try this live demo [Cat Clicker!](https://iamzhaihy.github.io/udacity-fend-cat-clicker/)
 
 
 

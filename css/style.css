@@ -1,0 +1,55 @@
+* {box-sizing:border-box;}
+
+body {
+  font: Helvetica, Arial, sans-serif;
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 80em;
+  background-color: #CCC;
+}
+
+.list-container {
+  font-size: Helvetica, Arial;
+  font-size: 20px;
+}
+
+#name-of-cat {
+  font-family: Georgia;
+  font-size: 30px;
+}
+
+#image-of-cat {
+  position:relative;
+  top: 10%;
+  left: 20;
+  width:100%;
+  opacity:1;
+}
+
+#click-counter {
+  font-family: Times;
+  font-size: 24px;
+}
+
+#admin-button {
+  display: none;
+  font-size: 20pt;
+  font-family: Georgia;
+  text-align: center;
+  border-style: solid;
+  border-width: medium;
+}
+
+#admin-options {
+  display: none;
+}
+
+.button-col-12 {
+  margin-top: 10pt;
+  width: 100%;
+  font-size: 15pt;
+  font-family: Georgia;
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+}

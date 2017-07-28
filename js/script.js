@@ -39,36 +39,41 @@
       // fill in the list
       for (var i = 0; i < arrayCat.length; i++) {
         // show the list of cats
-        $("#list-of-cat").append('<li class="defult"> Choose ' + arrayCat[i].whatKind + ' ' + arrayCat[i].name + ' !</li>');
+        $("#list-of-cat").append(`<li class="defult"> Choose ${arrayCat[i].whatKind} ${arrayCat[i].name} !</li>`);
         // each item has two classes: 'item' and 'cat-x'
         $(".defult").attr('class', 'item cat-' + i);
       }
 
       // initiate the viewer
-      $("#cat-image-container").append('<div class="cat-image-box">' 
-        + '<p id="name-of-cat"></p>' 
-        + '<img id="image-of-cat" src="">' 
-        + '<p id="click-counter">If you click one of them, a cute cat will show up! Try it!</p>' 
-        + '</div>');
+      $("#cat-image-container").append(
+        `<div class="cat-image-box"> 
+          <p id="name-of-cat"></p>
+          <img id="image-of-cat" src="">
+          <p id="click-counter">If you click one of them, a cute cat will show up! Try it!</p> 
+        </div>`
+      );
 
       // creat the admin button
       $("#admin-use-only").prepend('<div id="admin-button">Admin</div>');
 
       // create the admin area
-      $("#admin-options").append('<form id="admin-ared"></form><br>'
-      + 'Name <input type="text" id="admin-name">'
-      + 'ImgURL <input type="text" id="admin-url">'
-      + '#click <input type="text" id="admin-clicks">'
-      + 'How will you describe him/her? <input type="text" id="admin-adj">'
-      + '<div class="button-col-12 save-button">Save</div>'
-      + '<div class="button-col-12 cancel-button">Cancel</div>');
+      $("#admin-options").append(
+        `<form id="admin-ared"><br>
+          Name <input type="text" id="admin-name">
+          ImgURL <input type="text" id="admin-url">
+          #click <input type="text" id="admin-clicks">
+          How will you describe him/her? <input type="text" id="admin-adj">
+          <div class="button-col-12 save-button">Save</div>
+          <div class="button-col-12 cancel-button">Cancel</div>
+        </form>`
+      );
     },
 
     refreshList : function() {
       for (var i = 0; i < arrayCat.length; i++) {
         // show the list of cats
         itemId = ".cat-" + i;
-        $(itemId).text('Choose ' + arrayCat[i].whatKind + ' ' +arrayCat[i].name + '!');
+        $(itemId).text(`<li class="defult"> Choose ${arrayCat[i].whatKind} ${arrayCat[i].name} !</li>`);
       }
     },
 
@@ -81,14 +86,14 @@
       }
 
       if (arrayCat[catNum].numClick > 0) {
-        $("#click-counter").text('You clicked ' + arrayCat[catNum].numClick + ' times');
+        $("#click-counter").text(`You clicked ${arrayCat[catNum].numClick} times`);
       }
 
       $("#admin-button").css('display', 'block');
     },
 
     updateClicker : function(catNum) {
-      $("#click-counter").text('You clicked ' + arrayCat[catNum].numClick + ' times');
+      $("#click-counter").text(`You clicked ${arrayCat[catNum].numClick} times`);
     },
 
     closeAdminArea : function() {
@@ -178,15 +183,6 @@
     octopus.userClickImage();
   });
 
-  $( ".item" ).click(function() {
-    // class="item cat-x"
-    var itemClass = $(this).attr('class');
-    // last char tells which cat
-    var catIndex = itemClass.length-1;
-    
-    octopus.userClickList(itemClass[catIndex]);
-  });
-
   $( "#admin-button" ).click(function() {
     octopus.userClickAdmin();
   });
@@ -197,6 +193,15 @@
 
   $( ".cancel-button" ).click(function(){
     octopus.userClickCancel();
+  });
+
+    $( ".item" ).click(function() {
+    // class="item cat-x"
+    var itemClass = $(this).attr('class');
+    // last char tells which cat
+    var catIndex = itemClass.length-1;
+    
+    octopus.userClickList(itemClass[catIndex]);
   });
 
 })();

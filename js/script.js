@@ -37,9 +37,9 @@
   var view = {
     init : function() {
       // fill in the list
-      for (var i = 0; i < arrayCat.length; i++) {
-        // show the list of cats
-        $("#list-of-cat").append(`<li class="defult"> Choose ${arrayCat[i].whatKind} ${arrayCat[i].name} !</li>`);
+      for (var i = 0, len = arrayCat.length; i < len; i++) {
+        // show the list of options
+        $("#list-of-cat").append(`<li class="defult"> Choose ${arrayCat[i].whatKind} ${arrayCat[i].name}!</li>`);
         // each item has two classes: 'item' and 'cat-x'
         $(".defult").attr('class', 'item cat-' + i);
       }
@@ -70,10 +70,10 @@
     },
 
     refreshList : function() {
-      for (var i = 0; i < arrayCat.length; i++) {
+      for (var i = 0, len = arrayCat.length; i < len; i++) {
         // show the list of cats
         itemId = ".cat-" + i;
-        $(itemId).text(`<li class="defult"> Choose ${arrayCat[i].whatKind} ${arrayCat[i].name} !</li>`);
+        $(itemId).text(`<li class="defult"> Choose ${arrayCat[i].whatKind} ${arrayCat[i].name}!</li>`);
       }
     },
 
@@ -177,25 +177,31 @@
     }
   };
 
+  // initiate the page
   octopus.init();
 
+  // event: user clicks the image
   $( "#image-of-cat" ).click(function() {
     octopus.userClickImage();
   });
 
+  // event: user clicks admin button
   $( "#admin-button" ).click(function() {
     octopus.userClickAdmin();
   });
 
+  // event: user clicks save button
   $( ".save-button" ).click(function() {
     octopus.userClickSave();
   });
 
+  // event: user clicks cancel button
   $( ".cancel-button" ).click(function(){
     octopus.userClickCancel();
   });
 
-    $( ".item" ).click(function() {
+  // event: user clicks an item
+  $( ".item" ).click(function() {
     // class="item cat-x"
     var itemClass = $(this).attr('class');
     // last char tells which cat

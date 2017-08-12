@@ -1,4 +1,6 @@
-* {box-sizing:border-box;}
+* {
+  box-sizing: border-box;
+}
 
 body {
   font: Helvetica, Arial, sans-serif;
@@ -19,11 +21,11 @@ body {
 }
 
 #image-of-cat {
-  position:relative;
+  position: relative;
   top: 10%;
   left: 20;
-  width:100%;
-  opacity:1;
+  width: 100%;
+  opacity: 1;
 }
 
 #click-counter {

@@ -1,41 +1,40 @@
-(function() {
+(function () {
   // Model
-  var arrayCat = [
-    {
-      name : "Anna",
-      whatKind : "cute",
-      numClick : 0,
-      imgLink  : "images/cat1.jpg"
+  var arrayCat = [{
+      name: "Anna",
+      whatKind: "cute",
+      numClick: 0,
+      imgLink: "images/cat1.jpg"
     },
     {
-      name : "Ben",
-      whatKind : "pretty",
-      numClick : 0,
-      imgLink  : "images/cat2.jpg"
+      name: "Ben",
+      whatKind: "pretty",
+      numClick: 0,
+      imgLink: "images/cat2.jpg"
     },
     {
-      name : "Cathy",
-      whatKind : "playful",
-      numClick : 0,
-      imgLink  : "images/cat3.jpg"
+      name: "Cathy",
+      whatKind: "playful",
+      numClick: 0,
+      imgLink: "images/cat3.jpg"
     },
     {
-      name : "Danna",
-      whatKind : "cool",
-      numClick : 0,
-      imgLink  : "images/cat4.jpg"
+      name: "Danna",
+      whatKind: "cool",
+      numClick: 0,
+      imgLink: "images/cat4.jpg"
     },
     {
-      name : "Eric",
-      whatKind : "naughty",
-      numClick : 0,
-      imgLink  : "images/cat5.jpg"
+      name: "Eric",
+      whatKind: "naughty",
+      numClick: 0,
+      imgLink: "images/cat5.jpg"
     }
   ];
 
   // View
   var view = {
-    init : function() {
+    init: function () {
       // fill in the list
       for (var i = 0, len = arrayCat.length; i < len; i++) {
         // show the list of options
@@ -69,7 +68,7 @@
       );
     },
 
-    refreshList : function() {
+    refreshList: function () {
       for (var i = 0, len = arrayCat.length; i < len; i++) {
         // show the list of cats
         itemId = ".cat-" + i;
@@ -77,7 +76,7 @@
       }
     },
 
-    changeThePic : function(catNum) {
+    changeThePic: function (catNum) {
       $("#name-of-cat").text(arrayCat[catNum].name);
       $("#image-of-cat").attr('src', arrayCat[catNum].imgLink);
 
@@ -92,11 +91,11 @@
       $("#admin-button").css('display', 'block');
     },
 
-    updateClicker : function(catNum) {
+    updateClicker: function (catNum) {
       $("#click-counter").text(`You clicked ${arrayCat[catNum].numClick} times`);
     },
 
-    closeAdminArea : function() {
+    closeAdminArea: function () {
       // close admin options
       $("#admin-options").css("display", "none");
 
@@ -110,27 +109,27 @@
   // Octopus
   var octopus = {
     currentCat: 0,
-    
-    init : function() {
+
+    init: function () {
       view.init();
     },
 
-    userClickList : function(catNum) {
+    userClickList: function (catNum) {
       // change current cat
       currentCat = catNum;
       // update pic & info
       view.changeThePic(catNum);
     },
 
-    userClickImage : function() {
+    userClickImage: function () {
       // increment the counter
       arrayCat[currentCat].numClick++;
       // update view
       view.updateClicker(currentCat);
     },
 
-    userClickAdmin : function() {
-      if ( $("#admin-options").css("display") === "none" ) {
+    userClickAdmin: function () {
+      if ($("#admin-options").css("display") === "none") {
         // show the admin area
         $("#admin-options").css("display", "block");
       } else {
@@ -139,12 +138,12 @@
       }
     },
 
-    userClickSave : function() {
+    userClickSave: function () {
       // get the inputs
       var newName = $('#admin-name').val();
       var newImgURL = $('#admin-url').val();
       var newNumClicks = $('#admin-clicks').val();
-      var newWhatKind  = $('#admin-adj').val();
+      var newWhatKind = $('#admin-adj').val();
 
       // update the info if input is valid
       if (newName !== "") {
@@ -168,10 +167,10 @@
       view.changeThePic(currentCat);
 
       // close admin area
-      view.closeAdminArea();     
+      view.closeAdminArea();
     },
 
-    userClickCancel : function() {
+    userClickCancel: function () {
       // close admin area
       view.closeAdminArea();
     }
@@ -181,32 +180,32 @@
   octopus.init();
 
   // event: user clicks the image
-  $( "#image-of-cat" ).click(function() {
+  $("#image-of-cat").click(function () {
     octopus.userClickImage();
   });
 
   // event: user clicks admin button
-  $( "#admin-button" ).click(function() {
+  $("#admin-button").click(function () {
     octopus.userClickAdmin();
   });
 
   // event: user clicks save button
-  $( ".save-button" ).click(function() {
+  $(".save-button").click(function () {
     octopus.userClickSave();
   });
 
   // event: user clicks cancel button
-  $( ".cancel-button" ).click(function(){
+  $(".cancel-button").click(function () {
     octopus.userClickCancel();
   });
 
   // event: user clicks an item
-  $( ".item" ).click(function() {
+  $(".item").click(function () {
     // class="item cat-x"
     var itemClass = $(this).attr('class');
     // last char tells which cat
-    var catIndex = itemClass.length-1;
-    
+    var catIndex = itemClass.length - 1;
+
     octopus.userClickList(itemClass[catIndex]);
   });
 

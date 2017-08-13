@@ -72,7 +72,7 @@
       for (var i = 0, len = arrayCat.length; i < len; i++) {
         // show the list of cats
         itemId = ".cat-" + i;
-        $(itemId).text(`<li class="defult"> Choose ${arrayCat[i].whatKind} ${arrayCat[i].name}!</li>`);
+        $(itemId).text(`Choose ${arrayCat[i].whatKind} ${arrayCat[i].name}!`);
       }
     },
 

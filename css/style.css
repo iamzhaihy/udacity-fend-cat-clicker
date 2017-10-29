@@ -7,7 +7,10 @@ body {
   padding: 1em;
   margin: 0 auto;
   max-width: 80em;
-  background-color: #CCC;
+}
+
+.container {
+  background-color: #f5fffa;
 }
 
 .list-container {
@@ -33,25 +36,10 @@ body {
   font-size: 24px;
 }
 
-#admin-button {
+#admin-use-only {
   display: none;
-  font-size: 20pt;
-  font-family: Georgia;
-  text-align: center;
-  border-style: solid;
-  border-width: medium;
 }
 
 #admin-options {
   display: none;
-}
-
-.button-col-12 {
-  margin-top: 10pt;
-  width: 100%;
-  font-size: 15pt;
-  font-family: Georgia;
-  text-align: center;
-  border-style: solid;
-  border-width: thin;
 }
